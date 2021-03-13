@@ -1,4 +1,4 @@
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jamesjj/line-bot-demo) ![GitHub](https://img.shields.io/github/license/jamesjj/line-bot-demo) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jamesjj/line-bot-demo) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jamesjj/line-bot-demo/Go)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jamesjj/line-bot-demo) ![GitHub](https://img.shields.io/github/license/jamesjj/line-bot-demo?) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jamesjj/line-bot-demo) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jamesjj/line-bot-demo/Go)
 
 # Go Serverless LINE Bot Demo
 
@@ -28,7 +28,7 @@ You'll need:
  1. Execute `./aws-serverless/deploy.sh -g` 
  2. Enter parameter values when prompted:
    - `ChannelSecret` Your LINE API Channel Secret
-   - `ChannelAccessToken ` Your LINE API Channel Access Token
+   - `ChannelAccessToken` Your LINE API Channel Access Token
    - Enter `Y` if asked "Function may not have authorization defined, Is this okay?"
    - Use the default values for the other parameters.
  3. When the stack has finished deploying, it will show the `WebhookUrl` value in the outputs section. Please set and enable this URL as your webhook URL in the LINE Developer console.
