@@ -1,3 +1,5 @@
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jamesjj/line-bot-demo) ![GitHub](https://img.shields.io/github/license/jamesjj/line-bot-demo) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jamesjj/line-bot-demo) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jamesjj/line-bot-demo/Go)
+
 # Go Serverless LINE Bot Demo
 
 This is a LINE Messaging Bot written in Go using the [LINE Messaging API SDK](https://github.com/LINE/LINE-bot-sdk-go). The bot provides a webhook to be called by LINE.
