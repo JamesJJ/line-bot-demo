@@ -1,0 +1,116 @@
+$ ./aws-serverless/deploy.sh -g
+
+Configuring SAM deploy
+======================
+
+	Looking for config file [samconfig.toml] :  Found
+	Reading default arguments  :  Success
+
+	Setting default arguments for 'sam deploy'
+	=========================================
+	Stack Name [line-bot-demo]: 
+	AWS Region [us-west-2]: 
+	Parameter ApiStageName [v1]: 
+	Parameter ChannelSecret: 
+	Parameter ChannelAccessToken: 
+	#Shows you resources changes to be deployed and require a 'Y' to initiate deploy
+	Confirm changes before deploy [y/N]: 
+	#SAM needs permission to be able to create roles to connect to the resources in your template
+	Allow SAM CLI IAM role creation [Y/n]: 
+	Function may not have authorization defined, Is this okay? [y/N]: y
+	Save arguments to configuration file [Y/n]: y
+	SAM configuration file [samconfig.toml]: 
+	SAM configuration environment [default]: 
+
+	Looking for resources needed for deployment: Found!
+
+		Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-xkukuw7abcde
+		A different default S3 bucket can be set in samconfig.toml
+
+	Saved arguments to config file
+	Running 'sam deploy' for future deployments will use the parameters saved above.
+	The above parameters can be changed by modifying samconfig.toml
+	Learn more about samconfig.toml syntax at 
+	https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+Uploading to line-bot-demo/e23498add67f7d8f84c4738669e7f9f8  4365241 / 4365241  (100.00%)
+
+	Deploying with following values
+	===============================
+	Stack name                   : line-bot-demo
+	Region                       : us-west-2
+	Confirm changeset            : False
+	Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-xkukuw7abcde
+	Capabilities                 : ["CAPABILITY_IAM"]
+	Parameter overrides          : {"ApiStageName": "v1", "ChannelSecret": "*****", "ChannelAccessToken": "*****"}
+	Signing Profiles             : {}
+
+Initiating deployment
+=====================
+Function may not have authorization defined.
+Uploading to line-bot-demo/6e38fe1f7d3afd5ba6ed8f1e0424ce95.template  1633 / 1633  (100.00%)
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+---------------------------------------------------------------------------------------------------------------------------------
+Operation                        LogicalResourceId                ResourceType                     Replacement                    
+---------------------------------------------------------------------------------------------------------------------------------
++ Add                            ApiDeployment749eaa4278          AWS::ApiGateway::Deployment      N/A                            
++ Add                            ApiStage                         AWS::ApiGateway::Stage           N/A                            
++ Add                            Api                              AWS::ApiGateway::RestApi         N/A                            
++ Add                            FunctionHttpPostPermissionStag   AWS::Lambda::Permission          N/A                            
+                                 e                                                                                                
++ Add                            FunctionRole                     AWS::IAM::Role                   N/A                            
++ Add                            Function                         AWS::Lambda::Function            N/A                            
++ Add                            LogGroup                         AWS::Logs::LogGroup              N/A                            
+---------------------------------------------------------------------------------------------------------------------------------
+
+Changeset created successfully. arn:aws:cloudformation:us-west-2:123456789876:changeSet/samcli-deploy1615644121/ade431d4-3023-494f-b5b6-9eed85fae04c
+
+
+2021-03-13 22:02:09 - Waiting for stack create/update to complete
+
+CloudFormation events from changeset
+---------------------------------------------------------------------------------------------------------------------------------
+ResourceStatus                   ResourceType                     LogicalResourceId                ResourceStatusReason           
+---------------------------------------------------------------------------------------------------------------------------------
+CREATE_IN_PROGRESS               AWS::IAM::Role                   FunctionRole                     Resource creation Initiated    
+CREATE_IN_PROGRESS               AWS::IAM::Role                   FunctionRole                     -                              
+CREATE_COMPLETE                  AWS::IAM::Role                   FunctionRole                     -                              
+CREATE_IN_PROGRESS               AWS::Lambda::Function            Function                         -                              
+CREATE_IN_PROGRESS               AWS::Lambda::Function            Function                         Resource creation Initiated    
+CREATE_COMPLETE                  AWS::Lambda::Function            Function                         -                              
+CREATE_IN_PROGRESS               AWS::ApiGateway::RestApi         Api                              Resource creation Initiated    
+CREATE_IN_PROGRESS               AWS::Logs::LogGroup              LogGroup                         -                              
+CREATE_IN_PROGRESS               AWS::ApiGateway::RestApi         Api                              -                              
+CREATE_COMPLETE                  AWS::ApiGateway::RestApi         Api                              -                              
+CREATE_IN_PROGRESS               AWS::Lambda::Permission          FunctionHttpPostPermissionStag   Resource creation Initiated    
+                                                                  e                                                               
+CREATE_IN_PROGRESS               AWS::Logs::LogGroup              LogGroup                         Resource creation Initiated    
+CREATE_IN_PROGRESS               AWS::Lambda::Permission          FunctionHttpPostPermissionStag   -                              
+                                                                  e                                                               
+CREATE_IN_PROGRESS               AWS::ApiGateway::Deployment      ApiDeployment749eaa4278          Resource creation Initiated    
+CREATE_COMPLETE                  AWS::Logs::LogGroup              LogGroup                         -                              
+CREATE_IN_PROGRESS               AWS::ApiGateway::Deployment      ApiDeployment749eaa4278          -                              
+CREATE_COMPLETE                  AWS::ApiGateway::Deployment      ApiDeployment749eaa4278          -                              
+CREATE_IN_PROGRESS               AWS::ApiGateway::Stage           ApiStage                         -                              
+CREATE_IN_PROGRESS               AWS::ApiGateway::Stage           ApiStage                         Resource creation Initiated    
+CREATE_COMPLETE                  AWS::ApiGateway::Stage           ApiStage                         -                              
+CREATE_COMPLETE                  AWS::Lambda::Permission          FunctionHttpPostPermissionStag   -                              
+                                                                  e                                                               
+CREATE_COMPLETE                  AWS::CloudFormation::Stack       line-bot-demo                    -                              
+---------------------------------------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+---------------------------------------------------------------------------------------------------------------------------------
+Outputs                                                                                                                         
+---------------------------------------------------------------------------------------------------------------------------------
+Key                 WebhookUrl                                                                                                  
+Description         Line Bot web-hook URL                                                                                       
+Value               https://xdosk33669.execute-api.us-west-2.amazonaws.com/v1/line/hook                                         
+---------------------------------------------------------------------------------------------------------------------------------
+
+Successfully created/updated stack - line-bot-demo in us-west-2
+
+
