@@ -1,0 +1,54 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Line Bot
+Parameters:
+  ApiStageName:
+    Type: String
+    Default: v1
+  ChannelSecret:
+    Type: String
+    NoEcho: 'true'
+  ChannelAccessToken:
+    Type: String
+    NoEcho: 'true'
+Resources:
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Join ['-', [!Ref AWS::StackName, apigw]]
+      StageName: !Ref ApiStageName
+      Auth:
+        DefaultAuthorizer: NONE
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      Runtime: go1.x
+      CodeUri: .
+      FunctionName: !Join ['-', [!Ref AWS::StackName, lambda]]
+      Description: Line Bot
+      Timeout: 120
+      MemorySize: 128
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          LINE_CHANNEL_SECRET: !Ref ChannelSecret
+          LINE_CHANNEL_ACCESS_TOKEN: !Ref ChannelAccessToken
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Path: /line/hook
+            Method: post
+            RestApiId: !Ref Api
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Join ['', [/aws/lambda/, !Ref Function]]
+      RetentionInDays: '7'
+Outputs:
+  WebhookUrl:
+    Description: Line Bot web-hook URL
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${ApiStageName}/line/hook"

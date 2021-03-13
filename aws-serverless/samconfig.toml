@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "line-bot-demo"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+s3_prefix = "line-bot-demo"
+parameter_overrides = "ApiStageName=\"v1\""
