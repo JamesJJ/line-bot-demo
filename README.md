@@ -52,7 +52,7 @@ x-amzn-requestid: 71ce2272-98a5-9999-a526-72bbd14e9f65
 
 
 **Set & enable the webhook URL in the LINE Developer console:**
-![](./doc/LINE-webhook-setting.png)
+![](./doc/line-webhook-setting.png)
 
 **Bot replies in the LINE app:**
 
@@ -60,4 +60,4 @@ x-amzn-requestid: 71ce2272-98a5-9999-a526-72bbd14e9f65
 
 ## Notes
 
- - The LINE Messaging API SDK will validate the `X-Line-Signature` header when the webhook is called, to ensure only LINE can sucessfully use the webhook.
+ - The LINE Messaging API SDK will validate the `X-Line-Signature` header when the webhook is called and that should ensure only LINE can sucessfully use the webhook.
