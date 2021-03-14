@@ -35,7 +35,7 @@ You'll need:
 
 A full [deployment transcript](doc/deploy-transcript.txt) is in the `doc` directory and there are some screenshots below.
 
-### Sanity check with `curl`
+### Quick check with `curl`
 
 Making a HTTP POST request to the `WebhookUrl` address should produce a reply with `200` status and an empty body:
 
