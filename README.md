@@ -2,7 +2,7 @@
 
 # Go Serverless LINE Bot Demo
 
-This is a LINE Messaging Bot written in Go using the [LINE Messaging API SDK](https://github.com/LINE/LINE-bot-sdk-go). The bot provides a webhook to be called by LINE.
+This is a LINE Messaging Bot written in Go using the [LINE Messaging API SDK](https://github.com/line/line-bot-sdk-go). The bot provides a webhook to be called by LINE.
 
 The bot is "serverless" which means it runs using AWS Lambda and uses AWS API Gateway to expose the webhook endpoint.
 
@@ -40,7 +40,7 @@ A full [deployment transcript](doc/deploy-transcript.txt) is in the `doc` direct
 Making a HTTP POST request to the `WebhookUrl` address should produce a reply with `200` status and an empty body:
 
 ```
-$ curl -d '' -isS https://xdosk33669.execute-api.us-west-2.amazonaws.com/v1/LINE/hook
+$ curl -d '' -isS https://xdosk33669.execute-api.us-west-2.amazonaws.com/v1/line/hook
 
 HTTP/2 200 
 content-type: application/json
