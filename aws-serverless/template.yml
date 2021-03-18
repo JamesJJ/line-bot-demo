@@ -31,7 +31,7 @@ Resources:
       Timeout: 120
       MemorySize: 128
       Policies:
-      - AWSLambdaBasicExecutionRole
+        - AWSLambdaBasicExecutionRole
       Environment:
         Variables:
           LINE_CHANNEL_SECRET: !Ref ChannelSecret
